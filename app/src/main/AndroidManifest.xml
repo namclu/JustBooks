@@ -10,16 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- MainActivity-->
+        <!-- this activity enables the search dialog to initiate searches
+         in the SearchResultsActivity -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data android:name="android.app.default_searchable"
+                       android:value=".SearchResultsActivity"/>
         </activity>
 
-        <!-- SearchResultsActivity -->
+        <!-- this is the searchable activity; it performs searches -->
         <activity android:name=".SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
