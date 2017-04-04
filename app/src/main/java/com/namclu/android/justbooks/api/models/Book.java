@@ -1,4 +1,4 @@
-package com.namclu.android.justbooks.api.model;
+package com.namclu.android.justbooks.api.models;
 
 /**
  * Created by namlu on 04-Apr-17.

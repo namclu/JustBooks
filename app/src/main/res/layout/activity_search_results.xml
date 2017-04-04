@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.namclu.android.justbooks.ui.activity.SearchResultsActivity">
+    tools:context="com.namclu.android.justbooks.ui.activities.SearchResultsActivity">
 
 </android.support.constraint.ConstraintLayout>

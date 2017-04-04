@@ -1,4 +1,4 @@
-package com.namclu.android.justbooks.ui.activity;
+package com.namclu.android.justbooks.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
