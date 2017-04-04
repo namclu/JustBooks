@@ -12,7 +12,7 @@
 
         <!-- this activity enables the search dialog to initiate searches
          in the SearchResultsActivity -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activity.BookActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,7 +24,7 @@
         </activity>
 
         <!-- this is the searchable activity; it performs searches -->
-        <activity android:name=".SearchResultsActivity"
+        <activity android:name=".ui.activity.SearchResultsActivity"
                   android:label="Search Results">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>

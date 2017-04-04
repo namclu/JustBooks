@@ -1,4 +1,4 @@
-package com.namclu.android.justbooks;
+package com.namclu.android.justbooks.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import com.namclu.android.justbooks.R;
+
+public class BookActivity extends AppCompatActivity implements View.OnClickListener{
 
     private SearchView searchField;
     private Button searchButton;
