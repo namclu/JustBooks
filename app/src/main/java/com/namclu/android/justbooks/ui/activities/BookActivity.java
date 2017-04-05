@@ -12,6 +12,8 @@ import com.namclu.android.justbooks.R;
 
 public class BookActivity extends AppCompatActivity implements View.OnClickListener{
 
+    static final String EXTRA_SEARCH_TEXT = "EXTRA_SEARCH_TEXT";
+
     private SearchView searchField;
     private Button searchButton;
 

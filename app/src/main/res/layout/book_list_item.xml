@@ -3,7 +3,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:padding="@dimen/default_padding">
 
     <TextView
@@ -17,5 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Author: "/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>
 
 </LinearLayout>
