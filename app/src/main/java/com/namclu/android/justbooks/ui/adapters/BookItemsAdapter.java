@@ -44,7 +44,6 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
         return mBooks.size();
     }
 
-
     class BookItemsAdapterViewHolder extends RecyclerView.ViewHolder {
 
         /* Private fields */
@@ -56,6 +55,18 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
 
             bookTitle = (TextView) itemView.findViewById(R.id.text_book_item_title);
             bookAuthor = (TextView) itemView.findViewById(R.id.text_book_item_author);
+        }
+    }
+
+    public void clear() {
+
+        int size = mBooks.size();
+
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                mBooks.remove(0);
+            }
+            this.notifyItemRangeRemoved(0, size);
         }
     }
 }
