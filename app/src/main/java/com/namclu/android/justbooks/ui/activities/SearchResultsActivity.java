@@ -29,12 +29,14 @@ public class SearchResultsActivity extends AppCompatActivity
     /* Constant fields */
     private static final String TAG = SearchResultsActivity.class.getName();
     private static final String URL =
-            "https://www.googleapis.com/books/v1/volumes?q=android&maxResults=15";
+            "https://www.googleapis.com/books/v1/volumes?q=";
+            //"https://www.googleapis.com/books/v1/volumes?q=android&maxResults=15";
 
     /* Private fields */
     private List<Book> mBooks;
     private BookItemsAdapter mBookItemsAdapter;
     private RecyclerView mRecyclerView;
+    private String searchText;
 
     public static Intent getSearchIntent(Context context, String searchText) {
         Intent intent = new Intent(context, BookActivity.class);
@@ -64,6 +66,8 @@ public class SearchResultsActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mBookItemsAdapter);
 
         // Get the intent, verify the action and get the query
+        searchText = getIntent().getStringExtra("EXTRA_SEARCH_TEXT");
+
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -104,7 +108,9 @@ public class SearchResultsActivity extends AppCompatActivity
     * */
     @Override
     public Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
-        return new BookLoader(this, URL);
+        StringBuilder sb = new StringBuilder(URL);
+        sb.append(searchText);
+        return new BookLoader(this, sb.toString());
     }
 
     /*
