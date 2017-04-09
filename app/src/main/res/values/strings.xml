@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JustBooks</string>
+    <string name="app_name">Just Books</string>
     <string name="activity_name_book_results">Book Results</string>
     <string name="app_search_label">Search me</string>
     <string name="hint_search_books">Search books</string>
