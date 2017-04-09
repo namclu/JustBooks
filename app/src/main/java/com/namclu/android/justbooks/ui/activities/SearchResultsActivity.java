@@ -13,6 +13,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.namclu.android.justbooks.R;
@@ -36,7 +39,9 @@ public class SearchResultsActivity extends AppCompatActivity
     private List<Book> mBooks;
     private BookItemsAdapter mBookItemsAdapter;
     private RecyclerView mRecyclerView;
-    private String searchText;
+    private String mSearchString;
+    private TextView mEmptyStateTextView;
+    private ProgressBar mProgressBar;
 
     public static Intent getSearchIntent(Context context, String searchText) {
         Intent intent = new Intent(context, BookActivity.class);
@@ -58,7 +63,9 @@ public class SearchResultsActivity extends AppCompatActivity
 
         // Initialize fields
         mBookItemsAdapter = new BookItemsAdapter(mBooks);
-        mRecyclerView = (RecyclerView) findViewById(R.id.rv_search_results);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_search_results);
+        mEmptyStateTextView = (TextView) findViewById(R.id.text_empty_view);
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar_spinner);
 
         // RecyclerView stuff
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,7 +73,7 @@ public class SearchResultsActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mBookItemsAdapter);
 
         // Get the intent, verify the action and get the query
-        searchText = getIntent().getStringExtra("EXTRA_SEARCH_TEXT");
+        mSearchString = getIntent().getStringExtra("EXTRA_SEARCH_TEXT");
 
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -74,21 +81,18 @@ public class SearchResultsActivity extends AppCompatActivity
             doSearch(query);
         }
 
-        // Try to load data
+        // Check for network connectivity before attempting to load data
         try {
-            // Get a reference to the ConnectivityManager to check state of network connectivity
             ConnectivityManager connectivityManager =
                     (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-            // Get details on the currently active default data network
             NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-            // If there is a network connection, fetch data
             if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
-                // Initialize the loader. Pass in the int ID constant defined above and pass in null for
-                // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
-                // because this activity implements the LoaderCallbacks interface).
                 getLoaderManager().initLoader(1, null, this).forceLoad();
+            } else {
+                mEmptyStateTextView.setText("Network connection not found");
+                mProgressBar.setVisibility(View.GONE);
             }
         } catch (Exception e){
             Log.e(TAG, "Error w internet connection");
@@ -109,7 +113,7 @@ public class SearchResultsActivity extends AppCompatActivity
     @Override
     public Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
         StringBuilder sb = new StringBuilder(URL);
-        sb.append(searchText);
+        sb.append(mSearchString);
         return new BookLoader(this, sb.toString());
     }
 
@@ -129,6 +133,8 @@ public class SearchResultsActivity extends AppCompatActivity
             mBookItemsAdapter.notifyDataSetChanged();
             Toast.makeText(this, "Books added!", Toast.LENGTH_SHORT).show();
         }
+
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
