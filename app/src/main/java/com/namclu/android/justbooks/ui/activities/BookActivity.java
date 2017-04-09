@@ -31,14 +31,20 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
 
         // Set onClickListener
         searchButton.setOnClickListener(this);
+
+        //Check for network connectivity
     }
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(this, "Searching for " + searchField.getQuery(), Toast.LENGTH_SHORT).show();
+        if (searchField.getQuery().toString().isEmpty()) {
+            Toast.makeText(this, "Please enter your book search..." + searchField.getQuery(), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Searching for " + searchField.getQuery(), Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(this, SearchResultsActivity.class);
-        intent.putExtra(EXTRA_SEARCH_TEXT, searchField.getQuery().toString());
-        startActivity(intent);
+            Intent intent = new Intent(this, SearchResultsActivity.class);
+            intent.putExtra(EXTRA_SEARCH_TEXT, searchField.getQuery().toString());
+            startActivity(intent);
+        }
     }
 }
