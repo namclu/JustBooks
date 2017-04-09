@@ -15,12 +15,6 @@ public class Book {
     private String mAuthor;
     private String mDescription;
 
-    /* Create new Book object with a title and author */
-    public Book (String title, String author) {
-        setTitle(title);
-        setAuthor(author);
-    }
-
     /* Create new Book object with a title, author, description */
     public Book (String title, String author, String description) {
         setTitle(title);

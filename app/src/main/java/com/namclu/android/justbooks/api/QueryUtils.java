@@ -55,9 +55,7 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a List of {@link Book}
-        List<Book> books = extractBooksFromJson(jsonResponse);
-
-        return books;
+        return extractBooksFromJson(jsonResponse);
     }
 
      /*

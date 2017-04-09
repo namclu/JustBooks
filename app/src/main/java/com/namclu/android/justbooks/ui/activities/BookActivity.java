@@ -27,7 +27,7 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
         searchButton = (Button) findViewById(R.id.button_main_search);
 
         // Set views
-        searchField.setQueryHint(getResources().getString(R.string.search_hint));
+        searchField.setQueryHint(getResources().getString(R.string.hint_search_books));
 
         // Set onClickListener
         searchButton.setOnClickListener(this);
