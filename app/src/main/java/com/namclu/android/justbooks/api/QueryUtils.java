@@ -186,9 +186,10 @@ public final class QueryUtils {
                     if (authorsArray.length() > 0) {
                         author = authorsArray.getString(0);
                     }
+                    String description = volumeInfoObject.getString("description");
 
                     // Add a {@link Book} object to the list books
-                    books.add(new Book(title, author));
+                    books.add(new Book(title, author, description));
                 }
             }
         } catch (JSONException e) {

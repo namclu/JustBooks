@@ -13,11 +13,19 @@ public class Book {
      * */
     private String mTitle;
     private String mAuthor;
+    private String mDescription;
 
     /* Create new Book object with a title and author */
     public Book (String title, String author) {
         setTitle(title);
         setAuthor(author);
+    }
+
+    /* Create new Book object with a title, author, description */
+    public Book (String title, String author, String description) {
+        setTitle(title);
+        setAuthor(author);
+        setDescription(description);
     }
 
     /* Getter and setter methods */
@@ -35,5 +43,13 @@ public class Book {
 
     public void setAuthor(String author) {
         mAuthor = author;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
     }
 }

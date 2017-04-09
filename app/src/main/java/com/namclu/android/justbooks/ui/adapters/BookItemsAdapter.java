@@ -35,8 +35,9 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
     public void onBindViewHolder(BookItemsAdapterViewHolder holder, int position) {
         Book currentBook = mBooks.get(position);
 
-        holder.bookTitle.setText("Title: " + currentBook.getTitle());
-        holder.bookAuthor.setText("Author: " + currentBook.getAuthor());
+        holder.bookTitle.setText(String.format("Title: %s", currentBook.getTitle()));
+        holder.bookAuthor.setText(String.format("Author: %s", currentBook.getAuthor()));
+        holder.bookDescription.setText(String.format("Description: %s", currentBook.getDescription()));
     }
 
     @Override
@@ -49,12 +50,14 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
         /* Private fields */
         TextView bookTitle;
         TextView bookAuthor;
+        TextView bookDescription;
 
         public BookItemsAdapterViewHolder(View itemView) {
             super(itemView);
 
             bookTitle = (TextView) itemView.findViewById(R.id.text_book_item_title);
             bookAuthor = (TextView) itemView.findViewById(R.id.text_book_item_author);
+            bookDescription = (TextView) itemView.findViewById(R.id.text_book_item_description);
         }
     }
 

@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">JustBooks</string>
+    <string name="activity_name_book_results">Book Results</string>
     <string name="app_search_label">Search me</string>
     <string name="search_hint">Search books</string>
+
+    <string name="heading_title">Title: %s</string>
+    <string name="heading_author">Author: %s</string>
+    <string name="enter_a_book_search">Enter a book search</string>
+    <string name="hint_enter_search">Enter search</string>
+    <string name="button_search">Search</string>
+    <string name="error_message_network">Network connection not found</string>
 </resources>

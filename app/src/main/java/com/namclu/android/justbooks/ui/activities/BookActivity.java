@@ -42,7 +42,7 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Toast.makeText(this, "Searching for " + searchField.getQuery(), Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this, SearchResultsActivity.class);
+            Intent intent = new Intent(this, BookResultsActivity.class);
             intent.putExtra(EXTRA_SEARCH_TEXT, searchField.getQuery().toString());
             startActivity(intent);
         }

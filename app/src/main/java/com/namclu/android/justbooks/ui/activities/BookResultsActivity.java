@@ -24,11 +24,11 @@ import com.namclu.android.justbooks.ui.adapters.BookItemsAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchResultsActivity extends AppCompatActivity
+public class BookResultsActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<Book>> {
 
     /* Constant fields */
-    private static final String TAG = SearchResultsActivity.class.getName();
+    private static final String TAG = BookResultsActivity.class.getName();
     private static final String URL =
             "https://www.googleapis.com/books/v1/volumes?q=";
 
@@ -85,7 +85,7 @@ public class SearchResultsActivity extends AppCompatActivity
             if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
                 getLoaderManager().initLoader(1, null, this).forceLoad();
             } else {
-                mEmptyStateTextView.setText("Network connection not found");
+                mEmptyStateTextView.setText(String.format(getString(R.string.error_message_network)));
                 mProgressBar.setVisibility(View.GONE);
             }
         } catch (Exception e){

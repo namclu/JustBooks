@@ -11,14 +11,15 @@
         android:id="@+id/text_main_search_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter a book search"/>
+        style="@style/TextTitle"
+        android:text="@string/enter_a_book_search"/>
 
     <android.support.v7.widget.SearchView
         android:id="@+id/search_main_search_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_main_search_heading"
-        android:queryHint="Enter search"/>
+        android:queryHint="@string/hint_enter_search"/>
 
     <Button
         android:id="@+id/button_main_search"
@@ -26,6 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/search_main_search_field"
         android:layout_centerHorizontal="true"
-        android:text="Search"/>
+        android:text="@string/button_search"/>
 
 </RelativeLayout>
