@@ -37,13 +37,15 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (searchField.getQuery().toString().isEmpty()) {
+        String searchString = searchField.getQuery().toString().trim();
+
+        if (searchString.isEmpty()) {
             Toast.makeText(this, "Please enter a book search..." + searchField.getQuery(), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Searching for " + searchField.getQuery(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Searching for " + searchString, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, BookResultsActivity.class);
-            intent.putExtra(EXTRA_SEARCH_TEXT, searchField.getQuery().toString());
+            intent.putExtra(EXTRA_SEARCH_TEXT, searchString);
             startActivity(intent);
         }
     }
