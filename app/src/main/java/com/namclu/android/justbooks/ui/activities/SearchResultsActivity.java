@@ -1,9 +1,7 @@
 package com.namclu.android.justbooks.ui.activities;
 
 import android.app.LoaderManager;
-import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -33,7 +31,6 @@ public class SearchResultsActivity extends AppCompatActivity
     private static final String TAG = SearchResultsActivity.class.getName();
     private static final String URL =
             "https://www.googleapis.com/books/v1/volumes?q=";
-            //"https://www.googleapis.com/books/v1/volumes?q=android&maxResults=15";
 
     /* Private fields */
     private List<Book> mBooks;
@@ -43,23 +40,20 @@ public class SearchResultsActivity extends AppCompatActivity
     private TextView mEmptyStateTextView;
     private ProgressBar mProgressBar;
 
-    public static Intent getSearchIntent(Context context, String searchText) {
+    /*public static Intent getSearchIntent(Context context, String searchText) {
         Intent intent = new Intent(context, BookActivity.class);
         intent.putExtra("EXTRA_SEARCH_TEXT", searchText);
 
         return intent;
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-        // Create a fake list of Book objects
+        // Initialise List<Book>
         mBooks = new ArrayList<>();
-        /*mBooks.add(new Book("Moby Dick", "Herman Melville"));
-        mBooks.add(new Book("A Tale of Two Cities", "Charles Dickens"));
-        mBooks.add(new Book("Les Miserable", "Victor Hugo"));*/
 
         // Initialize fields
         mBookItemsAdapter = new BookItemsAdapter(mBooks);
@@ -75,11 +69,11 @@ public class SearchResultsActivity extends AppCompatActivity
         // Get the intent, verify the action and get the query
         mSearchString = getIntent().getStringExtra("EXTRA_SEARCH_TEXT");
 
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             doSearch(query);
-        }
+        }*/
 
         // Check for network connectivity before attempting to load data
         try {
@@ -99,11 +93,6 @@ public class SearchResultsActivity extends AppCompatActivity
         }
     }
 
-    // Method to search for books
-    void doSearch(String query) {
-
-    }
-
     /* Methods for LoaderManager.LoaderCallbacks */
 
     /*
@@ -113,7 +102,8 @@ public class SearchResultsActivity extends AppCompatActivity
     @Override
     public Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
         StringBuilder sb = new StringBuilder(URL);
-        sb.append(mSearchString);
+        sb.append(formatSearchText(mSearchString));
+
         return new BookLoader(this, sb.toString());
     }
 
@@ -132,6 +122,8 @@ public class SearchResultsActivity extends AppCompatActivity
             mBooks.addAll(books);
             mBookItemsAdapter.notifyDataSetChanged();
             Toast.makeText(this, "Books added!", Toast.LENGTH_SHORT).show();
+        } else if (books != null && books.isEmpty()) {
+            mEmptyStateTextView.setText("No books found! \nPlease search again...");
         }
 
         mProgressBar.setVisibility(View.GONE);
@@ -141,5 +133,20 @@ public class SearchResultsActivity extends AppCompatActivity
     public void onLoaderReset(Loader<List<Book>> loader) {
         // Loader reset, so we can clear out our existing data.
         mBookItemsAdapter.clear();
+    }
+
+    // Method to format searchString by replacing whitespaces with "+"
+    public String formatSearchText(String inputString) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] result = inputString.split("\\s");
+
+        for (int i = 0; i < result.length; i++) {
+            stringBuilder.append(result[i] + "+");
+        }
+        // Delete the last "+"
+        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("+"));
+
+        return stringBuilder.toString();
     }
 }

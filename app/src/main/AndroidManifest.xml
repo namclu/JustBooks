@@ -25,7 +25,8 @@
 
         <!-- this is the searchable activity; it performs searches -->
         <activity android:name=".ui.activities.SearchResultsActivity"
-                  android:label="Search Results">
+                  android:label="Search Results"
+                  android:parentActivityName=".ui.activities.BookActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
