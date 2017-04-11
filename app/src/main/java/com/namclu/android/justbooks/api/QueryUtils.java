@@ -176,18 +176,23 @@ public final class QueryUtils {
                     JSONObject currentBookObject = itemsArray.getJSONObject(i);
                     JSONObject volumeInfoObject = currentBookObject.getJSONObject("volumeInfo");
 
-                    // Extract the title and author from the JSON object
+                    // Extract the title, author, and description from the JSON object
                     String title = volumeInfoObject.getString("title");
-                    String author = "";
+                    String authors = "";
                     JSONArray authorsArray = volumeInfoObject.getJSONArray("authors");
 
-                    if (authorsArray.length() > 0) {
-                        author = authorsArray.getString(0);
+                    if (authorsArray != null) {
+                        for (int j = 0; j < authorsArray.length(); j++) {
+                            authors += authorsArray.getString(j) + "; ";
+                        }
+                        // Deliver the string w/o the last ";" in it
+                        authors = authors.substring(0, authors.length() - 2);
                     }
+
                     String description = volumeInfoObject.getString("description");
 
                     // Add a {@link Book} object to the list books
-                    books.add(new Book(title, author, description));
+                    books.add(new Book(title, authors, description));
                 }
             }
         } catch (JSONException e) {
