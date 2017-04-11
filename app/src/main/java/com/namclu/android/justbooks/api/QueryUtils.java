@@ -179,7 +179,15 @@ public final class QueryUtils {
                     // Extract the title, author, and description from the JSON object
                     String title = volumeInfoObject.getString("title");
                     String authors = "";
-                    JSONArray authorsArray = volumeInfoObject.getJSONArray("authors");
+                    JSONArray authorsArray = null;
+
+                    if (volumeInfoObject.isNull("authors")) {
+                        Log.v(TAG, "authorsArray = null");
+                        // This is where I suspect code should go to fix if authors is empty
+
+                    } else {
+                        volumeInfoObject.getJSONArray("authors");
+                    }
 
                     if (authorsArray != null) {
                         for (int j = 0; j < authorsArray.length(); j++) {
