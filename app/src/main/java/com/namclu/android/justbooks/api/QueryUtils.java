@@ -181,12 +181,10 @@ public final class QueryUtils {
                     String authors = "";
                     JSONArray authorsArray = null;
 
-                    if (volumeInfoObject.isNull("authors")) {
-                        Log.v(TAG, "authorsArray = null");
-                        // This is where I suspect code should go to fix if authors is empty
-
+                    if (volumeInfoObject.has("authors")) {
+                        authorsArray = volumeInfoObject.getJSONArray("authors");
                     } else {
-                        volumeInfoObject.getJSONArray("authors");
+                        authorsArray.put(0, "No authors");
                     }
 
                     if (authorsArray != null) {
