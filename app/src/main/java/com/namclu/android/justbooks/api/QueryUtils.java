@@ -183,17 +183,22 @@ public final class QueryUtils {
 
                     if (volumeInfoObject.has("authors")) {
                         authorsArray = volumeInfoObject.getJSONArray("authors");
-                    } else {
-                        authorsArray.put(0, "No authors");
-                    }
-
-                    if (authorsArray != null) {
                         for (int j = 0; j < authorsArray.length(); j++) {
                             authors += authorsArray.getString(j) + "; ";
                         }
                         // Deliver the string w/o the last ";" in it
                         authors = authors.substring(0, authors.length() - 2);
+                    } else {
+                        authorsArray.put(0, "No authors");
                     }
+
+                    /*if (authorsArray != null) {
+                        for (int j = 0; j < authorsArray.length(); j++) {
+                            authors += authorsArray.getString(j) + "; ";
+                        }
+                        // Deliver the string w/o the last ";" in it
+                        authors = authors.substring(0, authors.length() - 2);
+                    }*/
 
                     String description = volumeInfoObject.getString("description");
 
