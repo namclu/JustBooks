@@ -38,7 +38,6 @@
             android:id="@+id/text_book_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_book_title"
             style="@style/TextSubHeading"
             tools:text="Author "/>
 
@@ -62,7 +61,6 @@
             android:id="@+id/text_book_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_book_author"
             style="@style/TextSubHeading"
             tools:text="Description "/>
 

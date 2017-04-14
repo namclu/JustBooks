@@ -10,7 +10,7 @@
         android:id="@+id/text_main_search_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextSubHeading"
+        style="@style/TextHeading"
         android:text="@string/hint_search_books"/>
 
     <android.support.v7.widget.SearchView
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/search_main_search_field"
         android:layout_centerHorizontal="true"
+        style="@style/Button"
         android:text="@string/button_search"/>
 
 </RelativeLayout>

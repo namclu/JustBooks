@@ -7,19 +7,28 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
+
+    <style name="TextHeading">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">@dimen/default_padding</item>
+    </style>
+
     <style name="TextSubHeading">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingBottom">@dimen/default_padding</item>
         <item name="android:paddingRight">4dp</item>
     </style>
 
     <style name="TextGeneral">
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingBottom">@dimen/default_padding</item>
+    </style>
+
+    <style name="Button" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="android:padding">@dimen/default_padding</item>
     </style>
 
 </resources>

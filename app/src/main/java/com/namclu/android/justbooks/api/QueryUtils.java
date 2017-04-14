@@ -177,7 +177,12 @@ public final class QueryUtils {
                     JSONObject volumeInfoObject = currentBookObject.getJSONObject("volumeInfo");
 
                     // Extract the "title" tag from the JSON object
-                    String title = volumeInfoObject.getString("title");
+                    String title;
+                    if (volumeInfoObject.has("title")) {
+                        title = volumeInfoObject.getString("title");
+                    } else {
+                        title = "No title given.";
+                    }
 
                     // Extract "authors" tag from the JSON object
                     String authors = "";
