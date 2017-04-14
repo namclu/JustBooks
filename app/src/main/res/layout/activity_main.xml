@@ -10,7 +10,7 @@
         android:id="@+id/text_main_search_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextTitle"
+        style="@style/TextSubHeading"
         android:text="@string/hint_search_books"/>
 
     <android.support.v7.widget.SearchView

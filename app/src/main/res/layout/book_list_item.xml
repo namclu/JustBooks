@@ -6,31 +6,78 @@
               android:layout_height="wrap_content"
               android:padding="@dimen/default_padding">
 
-    <TextView
-        android:id="@+id/text_book_item_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TextTitle"
-        tools:text="Title "/>
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_book_item_author"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/TextGeneral"
-        tools:text="Author "/>
+        <!-- Title heading -->
+        <TextView
+            android:id="@+id/text_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextSubHeading"
+            tools:text="Title "/>
 
-    <TextView
-        android:id="@+id/text_book_item_description"
+        <!-- Title text -->
+        <TextView
+            android:id="@+id/text_book_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextGeneral"
+            tools:text="Book title"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="4"
-        style="@style/TextGeneral"
-        tools:text="Description "/>
+        android:orientation="horizontal">
+
+        <!-- Authors heading -->
+        <TextView
+            android:id="@+id/text_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_book_title"
+            style="@style/TextSubHeading"
+            tools:text="Author "/>
+
+        <!-- Authors text -->
+        <TextView
+            android:id="@+id/text_book_author_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextGeneral"
+            tools:text="Book author"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Description heading -->
+        <TextView
+            android:id="@+id/text_book_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_book_author"
+            style="@style/TextSubHeading"
+            tools:text="Description "/>
+
+        <!-- Description text -->
+        <TextView
+            android:id="@+id/text_book_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            style="@style/TextGeneral"
+            tools:text="Book description"/>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/dark_gray"/>
-
 </LinearLayout>

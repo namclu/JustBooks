@@ -191,7 +191,7 @@ public final class QueryUtils {
                         // Deliver the string w/o the last ";" in it
                         authors = authors.substring(0, authors.length() - 2);
                     } else {
-                        authors = "No author(s) given.";
+                        authors = "No author given.";
                     }
 
                     // Extract "description" tag from the JSON object

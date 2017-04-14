@@ -35,9 +35,12 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
     public void onBindViewHolder(BookItemsAdapterViewHolder holder, int position) {
         Book currentBook = mBooks.get(position);
 
-        holder.bookTitle.setText(String.format("Title: %s", currentBook.getTitle()));
-        holder.bookAuthor.setText(String.format("Author: %s", currentBook.getAuthor()));
-        holder.bookDescription.setText(String.format("Description: %s", currentBook.getDescription()));
+        holder.bookTitle.setText("Title:");
+        holder.bookTitleText.setText(String.format("%s", currentBook.getTitle()));
+        holder.bookAuthor.setText("Author:");
+        holder.bookAuthorText.setText(String.format("%s", currentBook.getAuthor()));
+        holder.bookDescription.setText("Description:");
+        holder.bookDescriptionText.setText(String.format("%s", currentBook.getDescription()));
     }
 
     @Override
@@ -49,15 +52,21 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
 
         /* Private fields */
         TextView bookTitle;
+        TextView bookTitleText;
         TextView bookAuthor;
+        TextView bookAuthorText;
         TextView bookDescription;
+        TextView bookDescriptionText;
 
         public BookItemsAdapterViewHolder(View itemView) {
             super(itemView);
 
-            bookTitle = (TextView) itemView.findViewById(R.id.text_book_item_title);
-            bookAuthor = (TextView) itemView.findViewById(R.id.text_book_item_author);
-            bookDescription = (TextView) itemView.findViewById(R.id.text_book_item_description);
+            bookTitle = (TextView) itemView.findViewById(R.id.text_book_title);
+            bookTitleText = (TextView) itemView.findViewById(R.id.text_book_title_text);
+            bookAuthor = (TextView) itemView.findViewById(R.id.text_book_author);
+            bookAuthorText = (TextView) itemView.findViewById(R.id.text_book_author_text);
+            bookDescription = (TextView) itemView.findViewById(R.id.text_book_description);
+            bookDescriptionText = (TextView) itemView.findViewById(R.id.text_book_description_text);
         }
     }
 
