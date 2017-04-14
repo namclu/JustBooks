@@ -18,7 +18,7 @@ import java.util.List;
 public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.BookItemsAdapterViewHolder>{
 
     /* private fields */
-    private List<Book> mBooks;
+    private final List<Book> mBooks;
 
     public BookItemsAdapter(List<Book> books) {
         mBooks = books;
@@ -35,11 +35,11 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
     public void onBindViewHolder(BookItemsAdapterViewHolder holder, int position) {
         Book currentBook = mBooks.get(position);
 
-        holder.bookTitle.setText("Title:");
+        holder.bookTitle.setText(R.string.heading_title);
         holder.bookTitleText.setText(String.format("%s", currentBook.getTitle()));
-        holder.bookAuthor.setText("Author:");
+        holder.bookAuthor.setText(R.string.heading_author);
         holder.bookAuthorText.setText(String.format("%s", currentBook.getAuthor()));
-        holder.bookDescription.setText("Description:");
+        holder.bookDescription.setText(R.string.heading_description);
         holder.bookDescriptionText.setText(String.format("%s", currentBook.getDescription()));
     }
 
@@ -51,12 +51,12 @@ public class BookItemsAdapter extends RecyclerView.Adapter<BookItemsAdapter.Book
     class BookItemsAdapterViewHolder extends RecyclerView.ViewHolder {
 
         /* Private fields */
-        TextView bookTitle;
-        TextView bookTitleText;
-        TextView bookAuthor;
-        TextView bookAuthorText;
-        TextView bookDescription;
-        TextView bookDescriptionText;
+        final TextView bookTitle;
+        final TextView bookTitleText;
+        final TextView bookAuthor;
+        final TextView bookAuthorText;
+        final TextView bookDescription;
+        final TextView bookDescriptionText;
 
         public BookItemsAdapterViewHolder(View itemView) {
             super(itemView);

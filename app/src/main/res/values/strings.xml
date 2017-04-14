@@ -4,9 +4,9 @@
     <string name="app_search_label">Search me</string>
     <string name="hint_search_books">Search books</string>
 
-    <string name="heading_title">Title: %s</string>
-    <string name="heading_author">Author: %s</string>
-    <string name="heading_description">Description: %s</string>
+    <string name="heading_title">Title:</string>
+    <string name="heading_author">Author:</string>
+    <string name="heading_description">Description:</string>
 
     <string name="hint_enter_search">Enter search</string>
     <string name="button_search">Search</string>

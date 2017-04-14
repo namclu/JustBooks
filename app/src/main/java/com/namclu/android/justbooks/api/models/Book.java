@@ -27,7 +27,7 @@ public class Book {
         return mTitle;
     }
 
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         mTitle = title;
     }
 
@@ -35,7 +35,7 @@ public class Book {
         return mAuthor;
     }
 
-    public void setAuthor(String author) {
+    private void setAuthor(String author) {
         mAuthor = author;
     }
 
@@ -43,7 +43,7 @@ public class Book {
         return mDescription;
     }
 
-    public void setDescription(String description) {
+    private void setDescription(String description) {
         mDescription = description;
     }
 }

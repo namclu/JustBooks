@@ -17,7 +17,7 @@ import java.util.List;
 
 public class BookLoader extends AsyncTaskLoader<List<Book>> {
 
-    private String mUrl;
+    private final String mUrl;
 
     public BookLoader(Context context, String url) {
         super(context);

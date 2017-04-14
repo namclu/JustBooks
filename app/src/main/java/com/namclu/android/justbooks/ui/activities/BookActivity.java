@@ -12,10 +12,9 @@ import com.namclu.android.justbooks.R;
 
 public class BookActivity extends AppCompatActivity implements View.OnClickListener{
 
-    static final String EXTRA_SEARCH_TEXT = "EXTRA_SEARCH_TEXT";
+    private static final String EXTRA_SEARCH_TEXT = "EXTRA_SEARCH_TEXT";
 
     private SearchView searchField;
-    private Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
 
         // Initialize views
         searchField = (SearchView) findViewById(R.id.search_main_search_field);
-        searchButton = (Button) findViewById(R.id.button_main_search);
+        Button searchButton = (Button) findViewById(R.id.button_main_search);
 
         // Set views
         searchField.setQueryHint(getResources().getString(R.string.hint_search_books));

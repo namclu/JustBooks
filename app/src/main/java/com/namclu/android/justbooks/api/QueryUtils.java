@@ -26,10 +26,10 @@ import java.util.List;
  * Helper methods related to requesting and receiving Book info from Google Books API
  */
 
-public final class QueryUtils {
+final class QueryUtils {
 
     /* Constant fields */
-    public static final String TAG = QueryUtils.class.getSimpleName();
+    private static final String TAG = QueryUtils.class.getSimpleName();
 
      /*
      * No one should ever create a {@link QueryUtils} object.
@@ -186,7 +186,7 @@ public final class QueryUtils {
 
                     // Extract "authors" tag from the JSON object
                     String authors = "";
-                    JSONArray authorsArray = null;
+                    JSONArray authorsArray;
 
                     if (volumeInfoObject.has("authors")) {
                         authorsArray = volumeInfoObject.getJSONArray("authors");
@@ -200,7 +200,7 @@ public final class QueryUtils {
                     }
 
                     // Extract "description" tag from the JSON object
-                    String description = "";
+                    String description;
 
                     if (volumeInfoObject.has("description")) {
                         description = volumeInfoObject.getString("description");

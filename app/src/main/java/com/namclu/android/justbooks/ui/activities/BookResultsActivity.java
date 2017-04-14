@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.namclu.android.justbooks.R;
 import com.namclu.android.justbooks.api.BookLoader;
@@ -85,7 +84,7 @@ public class BookResultsActivity extends AppCompatActivity
             if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
                 getLoaderManager().initLoader(1, null, this).forceLoad();
             } else {
-                mEmptyStateTextView.setText(String.format(getString(R.string.error_message_network)));
+                mEmptyStateTextView.setText(getString(R.string.error_message_network));
                 mProgressBar.setVisibility(View.GONE);
             }
         } catch (Exception e){
@@ -121,7 +120,6 @@ public class BookResultsActivity extends AppCompatActivity
         if (books != null && !books.isEmpty()) {
             mBooks.addAll(books);
             mBookItemsAdapter.notifyDataSetChanged();
-            Toast.makeText(this, "Books added!", Toast.LENGTH_SHORT).show();
         } else if (books != null && books.isEmpty()) {
             mEmptyStateTextView.setText("No books found! \nPlease search again...");
         }
@@ -136,13 +134,13 @@ public class BookResultsActivity extends AppCompatActivity
     }
 
     // Method to format searchString by replacing whitespaces with "+"
-    public String formatSearchText(String inputString) {
+    private String formatSearchText(String inputString) {
 
         StringBuilder stringBuilder = new StringBuilder();
         String[] result = inputString.split("\\s");
 
         for (int i = 0; i < result.length; i++) {
-            stringBuilder.append(result[i] + "+");
+            stringBuilder.append(result[i]).append("+");
         }
         // Delete the last "+"
         stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("+"));
