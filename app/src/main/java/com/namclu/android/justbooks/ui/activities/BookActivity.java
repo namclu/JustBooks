@@ -31,8 +31,6 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
 
         // Set onClickListener
         searchButton.setOnClickListener(this);
-
-        //Check for network connectivity
     }
 
     @Override
