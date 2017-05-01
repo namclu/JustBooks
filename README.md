@@ -1,6 +1,10 @@
 # JustBooks
 An Android app that provides a list published books based on a given search using the Google Books API.
 
+## Screenshots
+
+<img src="/screen_initial_screen.png" width="280" height="480">  <img src="/screen_input_search.png" width="280" height="480">  <img src="/screen_search_results.png" width="280" height="480">
+
 ## Getting Started
 
 Get started by cloning the project to your local machine:
@@ -9,13 +13,13 @@ Get started by cloning the project to your local machine:
 $ git clone https://github.com/namclu/JustBooks.git
 ```
 
-### Prerequisites
+## Prerequisites
 
 - Android Studio
 - minSdkVersion 17
 - targetSdkVersion 25
 
-### Installing
+## Installing
 
 1. Open Android Studio
 2. If the repository is cloned to your local machine, select ```Open an existing Android Studio project``` 
@@ -29,13 +33,10 @@ Directory Name: <Name of the repository>
 ```
 4. Build and Run
 
-### Author(s)
+## Author(s)
 
 - Nam Lu - [namclu](https://github.com/namclu)
 
-### Acknowledgements
+## Acknowledgements
 
 - [Google Books API](https://developers.google.com/books/)
-
-### Screenshots
-
