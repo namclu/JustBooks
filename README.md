@@ -1,10 +1,6 @@
 # JustBooks
 An Android app that provides a list published books based on a given search using the Google Books API.
 
-## Screenshots
-
-<img src="/screen_initial_screen.png" width="280" height="480">  <img src="/screen_input_search.png" width="280" height="480">  <img src="/screen_search_results.png" width="280" height="480">
-
 ## Getting Started
 
 Get started by cloning the project to your local machine:
@@ -40,3 +36,7 @@ Directory Name: <Name of the repository>
 ## Acknowledgements
 
 - [Google Books API](https://developers.google.com/books/)
+
+## Screenshots
+
+<img src="/screenshots/screen_initial_screen.png" width="280" height="480"> <img src="/screenshots/screen_input_search.png" width="280" height="480"> <img src="/screenshots/screen_search_results.png" width="280" height="480">
