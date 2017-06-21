@@ -39,4 +39,4 @@ Directory Name: <Name of the repository>
 
 ## Screenshots
 
-<img src="/screenshots/screen_initial_screen.png" width="280" height="480"> <img src="/screenshots/screen_input_search.png" width="280" height="480"> <img src="/screenshots/screen_search_results.png" width="280" height="480">
+<img src="/screenshots/just_books.gif" width="280" height="480">
